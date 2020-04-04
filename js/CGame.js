@@ -6,27 +6,6 @@ class Game {
         this.ctx = this.canvas.getContext("2d");
     }
 
-    newGameLoop() {
-        objects.forEach(obj => {
-            obj.update()
-        })
-        
-        handleCollisions(objects)
-        objects.forEach(obj => {
-            obj.draw()
-        })
-    }
-
-    handleCollisions(objects) {
-        pos = objects.filter(obj => obj.type == SNAKE)[0].position
-        objects.forEach(obj => {
-            if (pos.x == obj.position.x && pos.y == obj.position.y) {
-                obj.onCollision(snake)
-                snake.onCollision(obj)
-            }
-        })
-    }
-
     gameLoop(snake, bonusManager) {
         snake.update()
         var snake_x = snake.position.x;
@@ -62,7 +41,7 @@ class Game {
     }
 
     startGame(snake, bonus_manager, interval) {
-        setInterval(this.gameLoop(snake, bonus_manager), interval);
+        setInterval(() => newGameLoop([snake, bonus_manager]), interval)
     }
 
     clear() {
