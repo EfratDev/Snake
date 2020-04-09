@@ -2,7 +2,7 @@ class Snake {
     constructor(ctx, x, y, unit_size, direction, color) {
         this.ctx = ctx
         this.position = {
-            x: x,
+            x: x - unit_size,
             y: y
         }
 
@@ -31,6 +31,12 @@ class Snake {
         this.addUnit(this.position)
         this.temp = this.units[0]
         this.units.shift()
+    }
+
+    onCollision(type) {
+        if (type == BONUS) {
+            this.units.splice(0, 0, this.temp)
+        }
     }
 
     draw() {

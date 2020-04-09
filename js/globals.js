@@ -1,6 +1,6 @@
 WIDTH = 850
 HEIGHT = WIDTH;
-INTERVAL = 20;
+INTERVAL = 450;
 
 UNIT_SIZE = WIDTH / 20;
 
@@ -26,5 +26,12 @@ DOWN = "down"
 SNAKE_X = 0
 SNAKE_Y = 0
 
-BONUS_COLOR = "pink"
-SNAKE_COLOR = "green"
+BONUSES = 10
+BONUS_COLOR = "yellow"
+SNAKE_COLOR = "rgba(9, 255, 0, 1)"
+
+GAME_OVER_FONT = "100px Arial"
+GAME_OVER_COLOR = "purple"
+ALIGN = "center"
+BASELINE = "middle"
+GAME_OVER_TEXT = "GAME OVER!"

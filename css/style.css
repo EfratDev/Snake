@@ -16,7 +16,6 @@ canvas {
     bottom: 0;
     left: 0;
     right: 0;
-    
     background-color: #1f1c1c;
     border: 5px solid #33f553;
     animation-name: color_transition;

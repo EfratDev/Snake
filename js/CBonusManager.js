@@ -1,10 +1,10 @@
 class BonusManager {
-    constructor(board, unit_size, color) {
+    constructor(board, unit_size, color, bonuses_num) {
         this.board = board
         this.unit_size = unit_size
         this.color = color
         this.units = [];
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < bonuses_num; i++) {
             this.addBonus({
                 x: randMod(board.canvas.width, unit_size),
                 y: randMod(board.canvas.height, unit_size)
@@ -12,13 +12,13 @@ class BonusManager {
         }
     }
 
-    isPositionFree(pos) {
-        this.units.forEach(unit => {
-            if (pos.x == unit.x && pos.y == unit.y) {
-                return false
+    GetUnitIndexByPos(pos) {
+        for(var i = 0; i < this.units.length; i++) {
+            if (pos.x == this.units[i].x && pos.y == this.units[i].y) {
+                return i;
             }
-        })
-        return true
+        }
+        return false
     }
 
     addBonus() {
@@ -28,7 +28,7 @@ class BonusManager {
                 x: randMod(this.board.canvas.width, this.unit_size),
                 y: randMod(this.board.canvas.height, this.unit_size)
             }
-        } while (!this.isPositionFree(pos))
+        } while (this.GetUnitIndexByPos(pos))
 
         this.units.push(new Unit(this.unit_size, this.unit_size, 
             BONUS, this.color, pos.x, pos.y, this.board.ctx
@@ -36,6 +36,12 @@ class BonusManager {
     }
 
     update() {}
+
+    onCollision(pos) {
+        var i = this.GetUnitIndexByPos(pos);
+        this.units.splice(i, 1);
+        this.addBonus();
+    }
 
     draw() {
         for(var i = 0; i < this.units.length; i++) {
