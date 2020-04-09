@@ -11,6 +11,7 @@ class Snake {
         this.color = color
         this.units = [];
         this.addUnit(this.position)
+        this.registerInputs()
     }
 
     addUnit(position) {
@@ -42,6 +43,17 @@ class Snake {
     draw() {
         this.units.forEach(unit => {
             unit.draw()
+        })
+    }
+
+    registerInputs() {
+        document.addEventListener("keydown", event => {
+            switch(event.code) {
+                case "ArrowUp":    this.direction = UP; break
+                case "ArrowDown":  this.direction = DOWN; break
+                case "ArrowLeft":  this.direction = LEFT; break
+                case "ArrowRight": this.direction = RIGHT; break
+            }
         })
     }
 }

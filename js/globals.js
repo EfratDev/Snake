@@ -14,8 +14,8 @@ WALL = 3
 DIRECTIONS = {
     "right": {x: UNIT_SIZE, y: 0},
     "left": {x: -UNIT_SIZE, y: 0},
-    "up": {x: 0, y: UNIT_SIZE},
-    "down": {x: 0, y: -UNIT_SIZE}
+    "up": {x: 0, y: -UNIT_SIZE},
+    "down": {x: 0, y: UNIT_SIZE}
 }
 
 RIGHT = "right"

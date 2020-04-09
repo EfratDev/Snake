@@ -17,34 +17,6 @@ function GameLoop(objects, board) {
     }
 }
 
-/* function handleCollisions(objects, max_width, max_height) {
-    var players = objects.filter(obj => obj.units[0].type == SNAKE)
-    var objects = objects.filter(obj => obj.units[0].type != SNAKE)
-    var alive = true
-
-    players.forEach(player => {
-        if (player.position.x < 0 || player.position.x >= max_width ||
-            player.position.y < 0 || player.position.y >= max_height) {
-            return false
-        }
-        objects.forEach(obj => {
-            obj.units.forEach(unit => {
-                if ((player.position.x == unit.x) && 
-                    (player.position.y == unit.y)) {
-                    if (obj.units[0].type == SNAKE) {
-                        alive = false
-                    }
-                    obj.onCollision(player.position)
-                    player.onCollision(obj.units[0].type)
-                }
-            })
-        })
-    })
-    console.log(alive)
-    return alive
-}
-*/
-// TODO: separate to funcs
 class handleCollisions {
     constructor(objects, max_width, max_height) {
         this.max_width = max_width
