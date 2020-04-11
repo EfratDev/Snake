@@ -1,6 +1,6 @@
 WIDTH = 850
 HEIGHT = WIDTH;
-INTERVAL = 450;
+INTERVAL = 500;
 
 UNIT_SIZE = WIDTH / 20;
 
@@ -26,7 +26,7 @@ DOWN = "down"
 SNAKE_X = 0
 SNAKE_Y = 0
 
-BONUSES = 10
+BONUSES = 20
 BONUS_COLOR = "yellow"
 SNAKE_COLOR = "rgba(9, 255, 0, 1)"
 

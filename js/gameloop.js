@@ -22,18 +22,17 @@ class handleCollisions {
         this.max_width = max_width
         this.max_height = max_height
         this.players = objects.filter(obj => obj.units[0].type == SNAKE)
-        this.objects = objects.filter(obj => obj.units[0].type != SNAKE)
+        this.collidables = objects // objects.filter(obj => obj.units[0].type != SNAKE)
         this.alive = true
 
-        this.isPlayerAlive()
+        this.isPlayersAlive()
     }
 
-    isPlayerAlive() {
+    isPlayersAlive() {
         this.players.forEach(player => {
             this.player = player
             this.alive = this.isOnBoard(player.position.x, player.position.y)
-
-            this.objects.forEach(obj =>
+            this.collidables.forEach(obj =>
                 this.checkCollisions(obj, player.position.x, player.position.y)
             )
         })
@@ -42,10 +41,10 @@ class handleCollisions {
     isOnBoard(x, y) {
         return !(x < 0 || x >= this.max_width || y < 0 || y >= this.max_height)
     }
-
+    
     checkCollisions(obj, x, y) {
         obj.units.forEach(unit => {
-            if (x == unit.x && y == unit.y) {
+            if (x == unit.x && y == unit.y && unit != this.player.units[this.player.units.length - 1]) {
                 this.handleCollision(unit, obj)
             }
         })
@@ -55,5 +54,13 @@ class handleCollisions {
         this.alive = (unit.type != SNAKE)
         obj.onCollision(this.player.position)
         this.player.onCollision(unit.type)
+    }
+
+    getAllUnits(collidables) {
+        units = []
+        collidables.forEach(collidable => {
+            units.concat(collidable.units)
+        })
+        return units
     }
 }

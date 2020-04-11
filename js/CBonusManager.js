@@ -5,10 +5,7 @@ class BonusManager {
         this.color = color
         this.units = [];
         for (var i = 0; i < bonuses_num; i++) {
-            this.addBonus({
-                x: randMod(board.canvas.width, unit_size),
-                y: randMod(board.canvas.height, unit_size)
-            })
+            this.addBonus()
         }
     }
 
