@@ -11,7 +11,7 @@ class BonusManager {
 
     GetUnitIndexByPos(pos) {
         for(var i = 0; i < this.units.length; i++) {
-            if (pos.x == this.units[i].x && pos.y == this.units[i].y) {
+            if (pos.x == this.units[i].pos.x && pos.y == this.units[i].pos.y) {
                 return i;
             }
         }

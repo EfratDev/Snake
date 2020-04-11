@@ -3,14 +3,13 @@ class Unit {
         this.width = width;
         this.height = height;
         this.type = type;
-        this.x = x;
-        this.y = y;
-        this.ctx = ctx;
         this.color = color;
+        this.pos = {x: x, y: y}
+        this.ctx = ctx;
     }
 
     draw() {
         this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        this.ctx.fillRect(this.pos.x, this.pos.y, this.width, this.height);
     }
 }

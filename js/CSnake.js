@@ -1,7 +1,7 @@
 class Snake {
     constructor(ctx, x, y, unit_size, direction, color) {
         this.ctx = ctx
-        this.position = {
+        this.pos = {
             x: x - unit_size,
             y: y
         }
@@ -10,26 +10,26 @@ class Snake {
         this.direction = direction;
         this.color = color
         this.units = [];
-        this.addUnit(this.position)
+        this.addUnit(this.pos)
         this.registerInputs()
     }
 
-    addUnit(position) {
+    addUnit(pos) {
         this.units.push(new Unit(
             this.unit_size,
             this.unit_size,
             SNAKE,
             this.color,
-            position.x,
-            position.y,
+            pos.x,
+            pos.y,
             this.ctx
         ));
     }
 
     update() {
-        this.position.x += DIRECTIONS[this.direction].x
-        this.position.y += DIRECTIONS[this.direction].y
-        this.addUnit(this.position)
+        this.pos.x += DIRECTIONS[this.direction].x
+        this.pos.y += DIRECTIONS[this.direction].y
+        this.addUnit(this.pos)
         this.temp = this.units[0]
         this.units.shift()
     }

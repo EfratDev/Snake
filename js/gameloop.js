@@ -31,9 +31,9 @@ class handleCollisions {
     isPlayersAlive() {
         this.players.forEach(player => {
             this.player = player
-            this.alive = this.isOnBoard(player.position.x, player.position.y)
+            this.alive = this.isOnBoard(player.pos.x, player.pos.y)
             this.collidables.forEach(obj =>
-                this.checkCollisions(obj, player.position.x, player.position.y)
+                this.checkCollisions(obj, player.pos.x, player.pos.y)
             )
         })
     }
@@ -44,7 +44,7 @@ class handleCollisions {
     
     checkCollisions(obj, x, y) {
         obj.units.forEach(unit => {
-            if (x == unit.x && y == unit.y && unit != this.player.units[this.player.units.length - 1]) {
+            if (x == unit.pos.x && y == unit.pos.y && unit != this.player.units[this.player.units.length - 1]) {
                 this.handleCollision(unit, obj)
             }
         })
@@ -52,7 +52,7 @@ class handleCollisions {
 
     handleCollision(unit, obj) {
         this.alive = (unit.type != SNAKE)
-        obj.onCollision(this.player.position)
+        obj.onCollision(this.player.pos)
         this.player.onCollision(unit.type)
     }
 

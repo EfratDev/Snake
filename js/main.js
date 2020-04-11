@@ -8,16 +8,6 @@ function initializeGame() {
     game.startGame(snake, bonusManager, INTERVAL)
 }
 
-function getObjByPosition(units, position) {
-    for (var i = 0; i < units.length; i++) {
-        if (units[i].x == position[X] && units[i].y == position[Y]) {
-            return units[i];
-        } else {
-            return null;
-        }
-    }
-}
-
 function endGame(board) {
     board.ctx.font = GAME_OVER_FONT;
     board.ctx.fillStyle = GAME_OVER_COLOR;
