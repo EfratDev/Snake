@@ -1,6 +1,6 @@
 WIDTH = 850
 HEIGHT = WIDTH;
-INTERVAL = 500;
+INTERVAL = 150;
 
 UNIT_SIZE = WIDTH / 20;
 
@@ -23,15 +23,22 @@ LEFT = "left"
 UP = "up"
 DOWN = "down"
 
-SNAKE_X = 0
-SNAKE_Y = 0
+SNAKE_X = 10 * UNIT_SIZE
+SNAKE_Y = 10 * UNIT_SIZE
 
 BONUSES = 20
-BONUS_COLOR = "yellow"
+BONUS_COLOR = "rgb(247, 0, 255)"
 SNAKE_COLOR = "rgba(9, 255, 0, 1)"
 
-GAME_OVER_FONT = "100px Arial"
-GAME_OVER_COLOR = "purple"
+GAME_OVER_FONT = '130px monospace'
+GAME_OVER_COLOR = "yellow"
 ALIGN = "center"
 BASELINE = "middle"
-GAME_OVER_TEXT = "GAME OVER!"
+GAME_OVER_TEXT = "GAME OVER"
+
+START_BUTTON_COLOR = "blue"
+START_ALERT_TEXT = 'Press PLAY to start'
+START_BUTTON_TEXT = 'play'
+START_ALERT_COLOR = 'MediumSlateBlue'
+
+var GAME = "my awsome game"

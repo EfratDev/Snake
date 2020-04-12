@@ -1,6 +1,9 @@
 class BonusManager {
-    constructor(board, unit_size, color, bonuses_num) {
-        this.board = board
+    constructor(ctx, width, height, unit_size, color, bonuses_num, func) {
+        this.getAvailablePos = func
+        this.ctx = ctx
+        this.width = width
+        this.height = height
         this.unit_size = unit_size
         this.color = color
         this.units = [];
@@ -19,16 +22,9 @@ class BonusManager {
     }
 
     addBonus() {
-        var pos
-        do {
-            pos = {
-                x: randMod(this.board.canvas.width, this.unit_size),
-                y: randMod(this.board.canvas.height, this.unit_size)
-            }
-        } while (this.GetUnitIndexByPos(pos))
-
+        var pos = this.getAvailablePos()
         this.units.push(new Unit(this.unit_size, this.unit_size, 
-            BONUS, this.color, pos.x, pos.y, this.board.ctx
+            BONUS, this.color, pos.x, pos.y, this.ctx
         ))
     }
 

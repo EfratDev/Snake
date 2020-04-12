@@ -10,19 +10,20 @@
             <source src="media/background.mp4" type="video/mp4">
             </video>
         
-        <audio id="music" controls autoplay loop>
+        <audio id="music" controls loop>
             <source src="media/background_music.ogg" type="audio/ogg">
         </audio>
-                
+        
+        <canvas id = "background_canvas"></canvas>
         <canvas id="game_canvas"></canvas>
-                
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script type="text/javascript" src="js/globals.js"></script>
         <script type="text/javascript" src="js/utils.js"></script>
-        <script type="text/javascript" src="js/gameloop.js"></script>
+        <script type="text/javascript" src="js/handleCollisions.js"></script>
         <script type="text/javascript" src="js/CUnit.js"></script>
+        <script type="text/javascript" src="js/CSnake.js"></script>
         <script type="text/javascript" src="js/CBonusManager.js"></script>
         <script type="text/javascript" src="js/CGame.js"></script>
-        <script type="text/javascript" src="js/CSnake.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>

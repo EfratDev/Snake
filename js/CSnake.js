@@ -1,11 +1,7 @@
 class Snake {
     constructor(ctx, x, y, unit_size, direction, color) {
         this.ctx = ctx
-        this.pos = {
-            x: x - unit_size,
-            y: y
-        }
-
+        this.pos = {x: x, y: y}
         this.unit_size = unit_size
         this.direction = direction;
         this.color = color
@@ -26,6 +22,10 @@ class Snake {
         ));
     }
 
+    getHead() {
+        return this.units[this.units.length - 1]
+    }
+
     update() {
         this.pos.x += DIRECTIONS[this.direction].x
         this.pos.y += DIRECTIONS[this.direction].y
@@ -36,7 +36,7 @@ class Snake {
 
     onCollision(type) {
         if (type == BONUS) {
-            this.units.splice(0, 0, this.temp)
+            this.units.unshift(this.temp)
         }
     }
 
